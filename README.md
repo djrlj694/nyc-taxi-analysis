@@ -1,4 +1,3 @@
-# nyc-taxi-analysis
 # COVID-19's Impact on the NYC Taxi Industry
 
 [![version](https://img.shields.io/badge/version-0.1.0-yellow.svg)](https://semver.org)
