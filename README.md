@@ -63,6 +63,8 @@ Files in this project are organized as follows:
 ├── .gitattributes
 ├── .gitignore
 ├── .pre-commit-config.yaml
+├── .vscode
+│   └── settings.json
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
