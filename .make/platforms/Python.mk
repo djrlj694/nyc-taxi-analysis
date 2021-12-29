@@ -25,7 +25,7 @@
 
 .PHONY: clean-python clean-python-build clean-python-pyc
 
-## clean-python: Completes all Python cleanup activities.
+# clean-python: Completes all Python cleanup activities.
 clean-python: clean-python-build clean-python-pyc
 	@find . -name '.mypy_cache' -exec rm -rf {} +
 	@find . -name '__pycache__' -exec rm -rf {} +
