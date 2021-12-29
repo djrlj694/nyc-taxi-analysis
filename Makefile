@@ -8,11 +8,11 @@
 # LICENSE: MIT
 #
 # PURPOSE:
-# 1. To support the phases of software project development leading to
+# - To support the phases of software project development leading
 #    production-quality releases.
 #
 # AUTHORS:
-# 1. Robert (Bob) L. Jones
+# - Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
 # REVISED: Dec 29, 2021
