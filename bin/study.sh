@@ -23,16 +23,12 @@
 # =========================================================================== #
 
 
-# -- Pre-Sourced Variables -- #
-
 # Path to this script's project root
 # Example: ~/Documents/GitHub/nyc-taxi-analysis
 PREFIX="$(dirname $(dirname $0))"
 
-# -- Sourced Variables/Functions -- #
+# Sourced variables/functions
 . "${PREFIX}/src/bash/utilities/sources.sh"
-
-# -- Post-Sourced Variables -- #
 
 # Path to custom Python packages
 PYTHONPATH="${PREFIX}:${PYTHONPATH}"
