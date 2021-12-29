@@ -8,10 +8,10 @@
 # LICENSE: MIT
 #
 # PURPOSE:
-# 1. To enable the generation & display of online help.
+# - To enable the generation & display of online help.
 #
 # AUTHORS:
-# 1. Robert (Bob) L. Jones
+# - Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
 # REVISED: Dec 29, 2021
