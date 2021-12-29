@@ -8,10 +8,10 @@
 # LICENSE: MIT
 #
 # PURPOSE:
-# 1. To define variables for special characters & formatting STDOUT.
+# - To define variables for special characters & formatting STDOUT.
 #
 # AUTHORS:
-# 1. Robert (Bob) L. Jones
+# - Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
 # REVISED: Dec 29, 2021
