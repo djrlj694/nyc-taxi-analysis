@@ -30,15 +30,7 @@
 PREFIX="$(dirname $(dirname $0))"
 
 # -- Sourced Variables/Functions -- #
-
-if [ -f "~/.env" ]; then
-    . "~/.env"
-fi
-
-. "${PREFIX}/src/bash/variables/python.env"
-. "${PREFIX}/src/bash/variables/default.env"
-
-. "${PREFIX}/src/bash/functions/python.sh"
+. "${PREFIX}/src/bash/utilities/sources.sh"
 
 # -- Post-Sourced Variables -- #
 
