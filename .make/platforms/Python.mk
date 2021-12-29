@@ -1,9 +1,11 @@
 #!/usr/bin/make -f
 # =========================================================================== #
-# Copyright © 2021 djrlj694.dev. All rights reserved.
+# Copyright © 2021 | All rights reserved.
 # =========================================================================== #
 # PROGRAM: Python.mk
 # PROJECT: NYE Taxi Analysis
+# COMPANY: djrlj694.dev
+# LICENSE: MIT
 #
 # PURPOSE:
 # 1. To facilitate Python project initialization, setup, and cleanup.
@@ -12,7 +14,7 @@
 # 1. Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
-# REVISED: Dec 28, 2021
+# REVISED: Dec 29, 2021
 # =========================================================================== #
 
 

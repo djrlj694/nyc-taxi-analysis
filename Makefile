@@ -1,9 +1,11 @@
 #!/usr/bin/make -f
 # =========================================================================== #
-# Copyright © 2021 djrlj694.dev. All rights reserved.
+# Copyright © 2021 | All rights reserved.
 # =========================================================================== #
 # PROGRAM: Makefile
 # PROJECT: NYE Taxi Analysis
+# COMPANY: djrlj694.dev
+# LICENSE: MIT
 #
 # PURPOSE:
 # 1. To support the phases of software project development leading to
@@ -13,27 +15,14 @@
 # 1. Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
-# REVISED: Dec 28, 2021
+# REVISED: Dec 29, 2021
 # =========================================================================== #
-
-
-# =========================================================================== #
-# ENVIRONMENT
-# =========================================================================== #
-
-
--include .env
 
 
 # =========================================================================== #
 # DEFAULT CONSTANTS
 # =========================================================================== #
 
-
-# -- Debugging & Error Capture -- #
-
-# 0 = false, 1 = true
-VERBOSE ?= 0
 
 # -- Make -- #
 
@@ -45,32 +34,6 @@ MAKEFILE_DIR ?= $(dir $(realpath $(MAKEFILE)))
 
 # Path of the directory containing secondary makefiles.
 MAKE_DIR ?= $(MAKEFILE_DIR).make/
-
-
-# =========================================================================== #
-# INTERNAL CONSTANTS
-# =========================================================================== #
-
-
-# -- Commands -- #
-
-# Command options for no verbosity.
-ifeq ($(VERBOSE),0)
-Q := --quiet
-S := --silent
-endif
-
-# Command options for verbosity.
-ifneq ($(VERBOSE),0)
-V := -v
-endif
-
-# -- Help Strings -- #
-
-# -- Continuous Integration/Delivery (CI/CD) -- #
-
-BUILD=`date +%FT%T%z`
-VERSION := `git tag | tail -1`
 
 
 # ============================================================================ #
