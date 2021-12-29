@@ -1,17 +1,19 @@
 # =========================================================================== #
-# Copyright © 2021 djrlj694.dev. All rights reserved.
+# Copyright © 2021 | All rights reserved.
 # =========================================================================== #
 # PROGRAM: python.sh
 # PROJECT: NYE Taxi Analysis
+# COMPANY: djrlj694.dev
+# LICENSE: MIT
 #
 # PURPOSE:
-# 1. To declare Bash shell functions for Python features.
+# - To declare Bash shell functions for Python features.
 #
 # AUTHORS:
-# 1. Robert (Bob) L. Jones
+# - Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
-# REVISED: Dec 28, 2021
+# REVISED: Dec 29, 2021
 # =========================================================================== #
 
 
