@@ -235,3 +235,6 @@ $RECYCLE.BIN/
 
 # Data files
 *.csv
+
+# Source code files
+!src/python/packages
