@@ -62,25 +62,58 @@ Files in this project are organized as follows:
 ├── .editorconfig
 ├── .gitattributes
 ├── .gitignore
+├── .make/
+│   ├── features/
+│   │   ├── formatting.mk
+│   │   └── helping.mk
+│   └── platforms/
+│       └── Python.mk
 ├── .pre-commit-config.yaml
-├── .vscode
+├── .vscode/
 │   └── settings.json
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
+├── bin/
+│   ├── study.sh
+│   └── test.sh
 ├── data/
 │   ├── 01_raw/
 │   ├── 02_intermediate/
 │   └── 03_processed/
 ├── docs/
+├── etc/
+│   ├── content/
+│   │   ├── sample_email_body.html
+│   │   ├── sample_email_body.md.jinja2
+│   │   └── sample_email_body.txt
+│   ├── data/
+│   │   └── sample_3x3_data.csv
+│   └── settings/
+│       └── study_etl.yaml
 ├── notebooks/
 ├── pyproject.toml
 ├── references/
 ├── results/
 └── src/
-    ├── __version__.py
-    └── main.py
+    ├── bash/
+    │   ├── functions/
+    │   │   └── python.sh
+    │   ├── utilities/
+    │   │   └── sources.sh
+    │   └── variables/
+    │       ├── default.env
+    │       └── python.env
+    ├── python/
+    │   ├── __version__.py
+    │   └── packages/
+    │       ├── etl/
+    │       ├── file/
+    │       ├── study/
+    │       │   └── ui/
+    │       └── test/
+    └── sql/
 ```
 
 ### Source Code
