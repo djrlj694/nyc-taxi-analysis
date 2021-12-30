@@ -21,7 +21,7 @@ __author__ = 'Robert (Bob) L. Jones'
 __credits__ = ['Robert (Bob) L. Jones']
 
 __created_date__ = 'Dec 29, 2020'
-__modified_date__ = 'Dec 29, 2020'
+__modified_date__ = 'Dec 30, 2020'
 
 
 # =========================================================================== #
@@ -85,37 +85,27 @@ def extract_data():
     # Create source.
     source = etl.Source(SOURCE_FILE, SOURCE_URL, SOURCE_DIR)
 
-    # Yellow Taxi trip records
-    for year in range(2009, 2021):
-        for month in range(1, 13):
-            source.extract('yellow', year, month)
-    for month in range(1, 8):
-        source.extract('yellow', 2021, month)
-
-    # Green Taxi trip records
-    for month in range(8, 13):
-        source.extract('green', 2013, month)
-    for year in range(2014, 2021):
-        for month in range(1, 13):
-            source.extract('green', year, month)
-    for month in range(1, 8):
-        source.extract('green', 2021, month)
-
-    # For-Hire Vehicle trip records
-    for year in range(2015, 2021):
-        for month in range(1, 13):
-            source.extract('fhv', year, month)
-    for month in range(1, 8):
-        source.extract('fhv', 2021, month)
-
-    # High Volume For-Hire Vehicle trip records
-    for month in range(2, 13):
-        source.extract('fhvhv', 2019, month)
-    for year in range(2020, 2021):
-        for month in range(1, 13):
-            source.extract('fhvhv', year, month)
-    for month in range(1, 8):
-        source.extract('fhvhv', 2021, month)
+    # Extract trip records.
+    source.extract_files(
+        'yellow',           # Yellow Taxi
+        '2009-01-01',
+        '2021-07-31',
+    )
+    source.extract_files(
+        'green',            # Green Taxi
+        '2013-08-01',
+        '2021-07-31',
+    )
+    source.extract_files(
+        'fhv',              # For-Hire Vehicle
+        '2015-01-01',
+        '2021-07-31',
+    )
+    source.extract_files(
+        'fhvhv',            # High Volume For-Hire Vehicle
+        '2019-02-01',
+        '2021-07-31',
+    )
 
 # -- Data Processing: Transform -- #
 
