@@ -1,0 +1,11 @@
+Hello!
+
+You are receiving this email as a test of the NYC Taxi Analysis
+(https://github.com/djrlj694/nyc-taxi-analysis) study.
+
+Thank you for your participation in this test.  You may now safely delete this
+email.
+
+Regards,
+
+The Data Science Team
