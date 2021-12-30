@@ -110,9 +110,22 @@ Files in this project are organized as follows:
     │   └── packages/
     │       ├── etl/
     │       ├── file/
+    │       │   ├── __init__.py
+    │       │   ├── csv.py
+    │       │   ├── data.py
+    │       │   ├── delimited.py
+    │       │   ├── file.py
+    │       │   ├── jinja2.py
+    │       │   ├── markdown.py
+    │       │   ├── sqlite.py
+    │       │   └── yaml.py
     │       ├── study/
+    │       │   ├── __main__.py
     │       │   └── ui/
+    │       │       └── cli.py
     │       └── test/
+    │           ├── __init__.py
+    │           └── test_file.py
     └── sql/
 ```
 
