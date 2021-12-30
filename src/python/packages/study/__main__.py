@@ -7,6 +7,7 @@ import os
 import sys
 from pathlib import Path
 
+import etl
 import pandas as pd
 import ui.cli as cli
 
@@ -56,7 +57,7 @@ SOURCE_FILE = '%s_tripdata_%4d-%02d.csv'
 
 # -- URLs -- #
 
-SOURCE_URL = 'https://s3.amazonaws.com/nyc-tlc/trip+data/'
+SOURCE_URL = 'https://s3.amazonaws.com/nyc-tlc/trip+data'
 
 
 # =========================================================================== #
@@ -79,59 +80,42 @@ def visualize_data(df: pd.DataFrame):
 # -- Data Processing: Extract -- #
 
 
-def extract_data_file(source: str, year: int, month: int):
-
-    # source_path = str(SOURCE_PATH).format(source, year, month)
-    source_file = SOURCE_FILE % (source, year, month)
-    source_path = SOURCE_DIR / source_file
-    source_url = SOURCE_URL + source_file
-
-    if not Path(source_path).is_file():
-        print(f"Extracting file '{source_path}' from '{source_url}'...")
-
-        # Download source data as CSV from an API.
-        df = pd.read_csv(source_url)
-
-        # Save a copy of the extracted data.
-        df.to_csv(source_path, index=False)
-
-        # Debug data frame.
-        DEBUG and preview(df, extract_data.__name__)
-
-
 def extract_data():
+
+    # Create source.
+    source = etl.Source(SOURCE_FILE, SOURCE_URL, SOURCE_DIR)
 
     # Yellow Taxi trip records
     for year in range(2009, 2021):
         for month in range(1, 13):
-            extract_data_file('yellow', year, month)
+            source.extract('yellow', year, month)
     for month in range(1, 8):
-        extract_data_file('yellow', 2021, month)
+        source.extract('yellow', 2021, month)
 
     # Green Taxi trip records
     for month in range(8, 13):
-        extract_data_file('green', 2013, month)
+        source.extract('green', 2013, month)
     for year in range(2014, 2021):
         for month in range(1, 13):
-            extract_data_file('green', year, month)
+            source.extract('green', year, month)
     for month in range(1, 8):
-        extract_data_file('green', 2021, month)
+        source.extract('green', 2021, month)
 
     # For-Hire Vehicle trip records
     for year in range(2015, 2021):
         for month in range(1, 13):
-            extract_data_file('fhv', year, month)
+            source.extract('fhv', year, month)
     for month in range(1, 8):
-        extract_data_file('fhv', 2021, month)
+        source.extract('fhv', 2021, month)
 
     # High Volume For-Hire Vehicle trip records
     for month in range(2, 13):
-        extract_data_file('fhvhv', 2019, month)
+        source.extract('fhvhv', 2019, month)
     for year in range(2020, 2021):
         for month in range(1, 13):
-            extract_data_file('fhvhv', year, month)
+            source.extract('fhvhv', year, month)
     for month in range(1, 8):
-        extract_data_file('fhvhv', 2021, month)
+        source.extract('fhvhv', 2021, month)
 
 # -- Data Processing: Transform -- #
 

@@ -109,6 +109,8 @@ Files in this project are organized as follows:
     │   ├── __version__.py
     │   └── packages/
     │       ├── etl/
+    │       │   ├── __init__.py
+    │       │   └── source.py
     │       ├── file/
     │       │   ├── __init__.py
     │       │   ├── csv.py
