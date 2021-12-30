@@ -83,30 +83,22 @@ def visualize_data(df: pd.DataFrame):
 
 def extract_data(config: dict):
 
+    # Define an inner function to extract source data files.
+    def extract_files(type: str):
+        source.extract_files(
+            type,
+            config[type]['start_date'],
+            config[type]['end_date'],
+        )
+
     # Create source.
     source = etl.Source(SOURCE_FILE, SOURCE_URL, SOURCE_DIR)
 
     # Extract trip records.
-    source.extract_files(
-        'yellow',           # Yellow Taxi
-        '2009-01-01',
-        '2021-07-31',
-    )
-    source.extract_files(
-        'green',            # Green Taxi
-        '2013-08-01',
-        '2021-07-31',
-    )
-    source.extract_files(
-        'fhv',              # For-Hire Vehicle
-        '2015-01-01',
-        '2021-07-31',
-    )
-    source.extract_files(
-        'fhvhv',            # High Volume For-Hire Vehicle
-        '2019-02-01',
-        '2021-07-31',
-    )
+    extract_files('yellow')  # Yellow Taxi
+    extract_files('green')   # Green Taxi
+    extract_files('fhv')     # For-Hire Vehicle
+    extract_files('fhvhv')   # High Volume For-Hire Vehicle
 
 # -- Data Processing: Transform -- #
 
@@ -153,8 +145,12 @@ def main():
     # Read a configuration file.
     cfg = YAMLFile(args.config).load()
     DEBUG and print('cfg =', cfg)
+    DEBUG and print('type(cfg) =', type(cfg))
 
-    extract_data(cfg)
+    # Create a mini configuration dictionary.
+    sources_cfg = cfg['sources']
+
+    extract_data(sources_cfg)
     # df = extract_data()
     # df = transform_data(df)
     # visualize_data(df)
