@@ -7,6 +7,7 @@ from typing import Any
 from typing import Callable
 
 from jinja2 import Template
+from yaml.loader import Loader
 
 from .file import File
 
@@ -20,7 +21,7 @@ __author__ = 'Robert (Bob) L. Jones'
 __credits__ = ['Robert (Bob) L. Jones']
 
 __created_date__ = 'Dec 28, 2021'
-__modified_date__ = 'Dec 28, 2021'
+__modified_date__ = 'Dec 30, 2021'
 
 
 # =========================================================================== #
@@ -81,4 +82,7 @@ class Jinja2File(File):
             return u_str
         # ...or another Python object sourced by the string.
         else:
-            return transform(u_str)
+            # TODO: Find a better, more general soltution to replace this hack
+            # to fix an update to the argument count of yaml.load()
+            # return transform(u_str)
+            return transform(u_str, Loader=Loader)
