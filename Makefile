@@ -15,7 +15,7 @@
 # - Robert (Bob) L. Jones
 #
 # CREATED: Dec 28, 2021
-# REVISED: Dec 29, 2021
+# REVISED: Dec 30, 2021
 # =========================================================================== #
 
 
@@ -62,7 +62,7 @@ run0:
 
 ## run1: Completes all run activities.
 run1:
-	bin/study.sh -d data/01_raw -r results
+	bin/study.sh -c etc/settings/etl.yaml
 
 
 # =========================================================================== #
