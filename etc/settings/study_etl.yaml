@@ -1,0 +1,27 @@
+sources:
+  default: &src_default
+    filename: "%s_tripdata_%4d-%02d.csv"
+    dir_path: ${PREFIX}/data/01_raw
+    base_url: https://s3.amazonaws.com/nyc-tlc/trip+data
+    start:
+      year: 2009
+      month: 1
+    end:
+      year: 2021
+      month: 7
+  yellow: *src_default
+  green:
+    <<: *src_default
+    start:
+      year: 2013
+      month: 8
+  fhv:
+    <<: *src_default
+    start:
+      year: 2015
+      month: 1
+  fhvhv:
+    <<: *src_default
+    start:
+      year: 2019
+      month: 2
