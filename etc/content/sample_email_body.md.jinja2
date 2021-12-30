@@ -1,0 +1,16 @@
+{% if is_new -%}
+Hello, {{receiver_name}}!
+{% else -%}
+Hello again, {{receiver_name}}!
+{% endif %}
+
+You are receiving this email as a **test** of the [NYC Taxi Analysis][study] study.
+
+Thank you for your participation in this test.  You may now safely delete this
+email.
+
+Regards,
+
+{{sender_name}}
+
+[study]: https://github.com/djrlj694/nyc-taxi-analysis
