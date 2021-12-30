@@ -10,6 +10,7 @@ from pathlib import Path
 import etl
 import pandas as pd
 import ui.cli as cli
+from file import YAMLFile
 
 
 # =========================================================================== #
@@ -80,7 +81,7 @@ def visualize_data(df: pd.DataFrame):
 # -- Data Processing: Extract -- #
 
 
-def extract_data():
+def extract_data(config: dict):
 
     # Create source.
     source = etl.Source(SOURCE_FILE, SOURCE_URL, SOURCE_DIR)
@@ -147,11 +148,13 @@ def main():
     DEBUG and print('PREFIX =', PREFIX)
 
     # Print CLI option values.
-    if DEBUG:
-        print('args.data =', args.data)        # Ex: data/01_raw
-        print('args.results =', args.results)  # Ex: results
+    DEBUG and print('args.config =', args.config)  # Ex: etc/settings/etl.cfg
 
-    extract_data()
+    # Read a configuration file.
+    cfg = YAMLFile(args.config).load()
+    DEBUG and print('cfg =', cfg)
+
+    extract_data(cfg)
     # df = extract_data()
     # df = transform_data(df)
     # visualize_data(df)
