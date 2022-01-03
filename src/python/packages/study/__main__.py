@@ -10,6 +10,7 @@ from pathlib import Path
 import etl
 import pandas as pd
 import ui.cli as cli
+from file import YAMLFile
 
 
 # =========================================================================== #
@@ -21,7 +22,7 @@ __author__ = 'Robert (Bob) L. Jones'
 __credits__ = ['Robert (Bob) L. Jones']
 
 __created_date__ = 'Dec 29, 2020'
-__modified_date__ = 'Dec 29, 2020'
+__modified_date__ = 'Dec 30, 2020'
 
 
 # =========================================================================== #
@@ -80,42 +81,24 @@ def visualize_data(df: pd.DataFrame):
 # -- Data Processing: Extract -- #
 
 
-def extract_data():
+def extract_data(config: dict):
+
+    # Define an inner function to extract source data files.
+    def extract_files(type: str):
+        source.extract_files(
+            type,
+            config[type]['start_date'],
+            config[type]['end_date'],
+        )
 
     # Create source.
     source = etl.Source(SOURCE_FILE, SOURCE_URL, SOURCE_DIR)
 
-    # Yellow Taxi trip records
-    for year in range(2009, 2021):
-        for month in range(1, 13):
-            source.extract('yellow', year, month)
-    for month in range(1, 8):
-        source.extract('yellow', 2021, month)
-
-    # Green Taxi trip records
-    for month in range(8, 13):
-        source.extract('green', 2013, month)
-    for year in range(2014, 2021):
-        for month in range(1, 13):
-            source.extract('green', year, month)
-    for month in range(1, 8):
-        source.extract('green', 2021, month)
-
-    # For-Hire Vehicle trip records
-    for year in range(2015, 2021):
-        for month in range(1, 13):
-            source.extract('fhv', year, month)
-    for month in range(1, 8):
-        source.extract('fhv', 2021, month)
-
-    # High Volume For-Hire Vehicle trip records
-    for month in range(2, 13):
-        source.extract('fhvhv', 2019, month)
-    for year in range(2020, 2021):
-        for month in range(1, 13):
-            source.extract('fhvhv', year, month)
-    for month in range(1, 8):
-        source.extract('fhvhv', 2021, month)
+    # Extract trip records.
+    extract_files('yellow')  # Yellow Taxi
+    extract_files('green')   # Green Taxi
+    extract_files('fhv')     # For-Hire Vehicle
+    extract_files('fhvhv')   # High Volume For-Hire Vehicle
 
 # -- Data Processing: Transform -- #
 
@@ -157,11 +140,17 @@ def main():
     DEBUG and print('PREFIX =', PREFIX)
 
     # Print CLI option values.
-    if DEBUG:
-        print('args.data =', args.data)        # Ex: data/01_raw
-        print('args.results =', args.results)  # Ex: results
+    DEBUG and print('args.config =', args.config)  # Ex: etc/settings/etl.cfg
 
-    extract_data()
+    # Read a configuration file.
+    cfg = YAMLFile(args.config).load()
+    DEBUG and print('cfg =', cfg)
+    DEBUG and print('type(cfg) =', type(cfg))
+
+    # Create a mini configuration dictionary.
+    sources_cfg = cfg['sources']
+
+    extract_data(sources_cfg)
     # df = extract_data()
     # df = transform_data(df)
     # visualize_data(df)
