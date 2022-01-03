@@ -14,7 +14,7 @@ __author__ = 'Robert (Bob) L. Jones'
 __credits__ = ['Robert (Bob) L. Jones']
 
 __created_date__ = 'Dec 28, 2021'
-__modified_date__ = 'Dec 28, 2021'
+__modified_date__ = 'Dec 30, 2021'
 
 
 # =========================================================================== #
@@ -40,21 +40,14 @@ def read_args():
     parser = argparse.ArgumentParser(
         prog=prog,
         description=f'Generates artifacts for study {proj}.',
-        epilog=f'example: {prog} -d data -r report',
+        epilog=f'example: {prog} -c config.yaml',
     )
     parser.add_argument(
-        '-d', '--data',
+        '-c', '--config',
         action='store',
         type=str,
         required=True,
-        help='Source data path',
-    )
-    parser.add_argument(
-        '-r', '--results',
-        action='store',
-        type=str,
-        required=True,
-        help='Target results path',
+        help='YAML-formatted configuration file',
     )
 
     # Return an object containing the parsed arguments.
@@ -74,5 +67,4 @@ if __name__ == '__main__':
     # Test custom functions.
     print('Testing custom functions.')
     print('read_args() =', read_args())
-    print('read_args().data =', read_args().data)
-    print('read_args().results =', read_args().results)
+    print('read_args().config =', read_args().config)

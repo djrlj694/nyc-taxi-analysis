@@ -235,6 +235,9 @@ $RECYCLE.BIN/
 
 # Data files
 *.csv
+*.xlsx
+!data/02_intermediate/*.csv
+!data/03_processed/*.csv
 !etc/data/*.csv
 
 # Source code files

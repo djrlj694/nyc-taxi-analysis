@@ -76,11 +76,13 @@ Files in this project are organized as follows:
 ├── LICENSE
 ├── README.md
 ├── bin/
+│   ├── extract_headers.sh
 │   ├── study.sh
 │   └── test.sh
 ├── data/
 │   ├── 01_raw/
 │   ├── 02_intermediate/
+│   │   └── header_summary_tripdata.csv
 │   └── 03_processed/
 ├── docs/
 ├── etc/
